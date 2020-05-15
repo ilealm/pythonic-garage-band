@@ -93,21 +93,31 @@ class Band():
     def add_member(self, member):        
         Band.members.append(member)
     
+    @classmethod
+    def play_solos(cls):
+        msg = ""
+        for i in range(len(cls.members)):
+            msg +=  cls.members[i].play_solo() + "\n"
+
+        return msg
+
+
+    
 
  
 if __name__ == "__main__":
     my_guitarist = Guitarist("Carlos Santanna")
     my_bassist = Bassist("Mandy Jane")
     my_drummer = Drummer("Ian von")
-
     my_band = Band("Apocaliptica")
 
-    print( my_drummer.play_solo())
-    print(my_band.name)
+    # print( my_drummer.play_solo())
+    # print(my_band.name)
     # x = my_band.to_list()
     # print(x[0].name)
     my_band.add_member(my_guitarist)
     my_band.add_member(my_bassist)
     my_band.add_member(my_drummer)
 
-    my_band.to_list()
+    # my_band.to_list()
+    print(my_band.play_solos())
